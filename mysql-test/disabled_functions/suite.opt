@@ -1,1 +1,1 @@
---plugin-load-add=$DISABLED_FUNCTIONS_SO --disabled-functions-functions=SLEEP,COLUMN_LIST
+--plugin-load-add=$DISABLED_FUNCTIONS_SO --disabled-functions-list=SLEEP,COLUMN_LIST

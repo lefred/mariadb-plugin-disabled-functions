@@ -2,9 +2,9 @@
 SELECT PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS
   WHERE PLUGIN_NAME='disabled_functions';
 
-SELECT @@disabled_functions_functions;
+SELECT @@disabled_functions_list;
 
---echo # Functions named in disabled_functions_functions are unavailable.
+--echo # Functions named in disabled_functions_list are unavailable.
 --disable_query_log
 --disable_result_log
 --error ER_SP_DOES_NOT_EXIST

@@ -3,10 +3,10 @@ SELECT PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS
 WHERE PLUGIN_NAME='disabled_functions';
 PLUGIN_STATUS
 ACTIVE
-SELECT @@disabled_functions_functions;
-@@disabled_functions_functions
+SELECT @@disabled_functions_list;
+@@disabled_functions_list
 SLEEP,COLUMN_LIST
-# Functions named in disabled_functions_functions are unavailable.
+# Functions named in disabled_functions_list are unavailable.
 # Other native functions still resolve normally.
 SELECT ABS(-2);
 ABS(-2)

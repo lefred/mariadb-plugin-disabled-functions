@@ -58,7 +58,7 @@ struct st_mysql_daemon disabled_functions_plugin=
 
 static char *disabled_functions_names;
 
-static MYSQL_SYSVAR_STR(functions, disabled_functions_names,
+static MYSQL_SYSVAR_STR(list, disabled_functions_names,
   PLUGIN_VAR_RQCMDARG | PLUGIN_VAR_READONLY,
   "Comma or whitespace separated list of native built-in SQL functions to "
   "disable at startup, for example COLUMN_LIST,LOAD_FILE,SLEEP",
@@ -66,7 +66,7 @@ static MYSQL_SYSVAR_STR(functions, disabled_functions_names,
 
 static struct st_mysql_sys_var *disabled_functions_system_variables[]=
 {
-  MYSQL_SYSVAR(functions),
+  MYSQL_SYSVAR(list),
   NULL
 };
 

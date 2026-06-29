@@ -6,12 +6,12 @@
 built-in SQL functions at server startup.
 
 The functions to disable are configured with the
-`disabled_functions_functions` system variable:
+`disabled_functions_list` system variable:
 
 ```ini
 [mariadb]
 plugin_load_add=disabled_functions
-disabled_functions_functions=SLEEP,COLUMN_LIST,LOAD_FILE
+disabled_functions_list=SLEEP,COLUMN_LIST,LOAD_FILE
 ```
 
 The list can be comma or whitespace separated. Function names are matched
@@ -55,7 +55,7 @@ function registry during initialization:
 ```ini
 [mariadb]
 plugin_load_add=disabled_functions
-disabled_functions_functions=SLEEP,COLUMN_LIST
+disabled_functions_list=SLEEP,COLUMN_LIST
 ```
 
 The equivalent command-line options are:
@@ -63,7 +63,7 @@ The equivalent command-line options are:
 ```bash
 mariadbd \
   --plugin-load-add=disabled_functions \
-  --disabled-functions-functions=SLEEP,COLUMN_LIST
+  --disabled-functions-list=SLEEP,COLUMN_LIST
 ```
 
 ## Usage
@@ -73,10 +73,10 @@ Start MariaDB with a disable list:
 ```ini
 [mariadb]
 plugin_load_add=disabled_functions
-disabled_functions_functions=SLEEP,COLUMN_LIST
+disabled_functions_list=SLEEP,COLUMN_LIST
 ```
 
-Functions listed in `disabled_functions_functions` are no longer resolved as
+Functions listed in `disabled_functions_list` are no longer resolved as
 native built-in functions:
 
 ```sql
@@ -97,12 +97,12 @@ SELECT ABS(-2);
 The configured list can be inspected with:
 
 ```sql
-SELECT @@disabled_functions_functions;
+SELECT @@disabled_functions_list;
 ```
 
 ## Limitations
 
-`disabled_functions_functions` is read-only. The disable list is applied only
+`disabled_functions_list` is read-only. The disable list is applied only
 when the plugin is initialized during server startup.
 
 Unloading the plugin does not restore disabled functions. They remain disabled
