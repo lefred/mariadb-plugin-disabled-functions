@@ -1,0 +1,13 @@
+# The plugin is loaded at startup by suite.opt.
+SELECT PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS
+WHERE PLUGIN_NAME='disabled_functions';
+PLUGIN_STATUS
+ACTIVE
+SELECT @@disabled_functions_functions;
+@@disabled_functions_functions
+SLEEP,COLUMN_LIST
+# Functions named in disabled_functions_functions are unavailable.
+# Other native functions still resolve normally.
+SELECT ABS(-2);
+ABS(-2)
+2
