@@ -234,16 +234,16 @@ maria_declare_plugin(disabled_functions)
 {
   MYSQL_DAEMON_PLUGIN,
   &disabled_functions_plugin,
-  "disabled_functions",
-  "lefred",
-  "Disables selected native built-in SQL functions",
-  PLUGIN_LICENSE_GPL,
+  PLUGIN_NAME,
+  PLUGIN_AUTHOR,
+  PLUGIN_DESCRIPTION,
+  PLUGIN_LICENSE,
   disabled_functions_plugin_init,
   disabled_functions_plugin_deinit,
-  0x0100,
+  PLUGIN_HEX_VERSION,
   NULL,
   disabled_functions_system_variables,
-  "0.2.0",
+  PLUGIN_VERSION,
   MariaDB_PLUGIN_MATURITY_ALPHA
 }
 maria_declare_plugin_end;
