@@ -49,6 +49,13 @@ if(COMMAND MARIADB_ADD_PLUGIN)
         DESCRIPTION "${PLUGIN_DESCRIPTION}"
     )
 
+    #
+    # MARIADB_ADD_PLUGIN does not provide a maturity definition.
+    #
+    target_compile_definitions(${PLUGIN_NAME} PRIVATE
+        PLUGIN_MATURITY=${PLUGIN_MATURITY}
+    )
+
 elseif(COMMAND MYSQL_ADD_PLUGIN)
 
     message(STATUS "Building ${PLUGIN_NAME} using legacy MYSQL_ADD_PLUGIN")
