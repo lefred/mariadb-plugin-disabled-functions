@@ -244,6 +244,6 @@ maria_declare_plugin(disabled_functions)
   NULL,
   disabled_functions_system_variables,
   PLUGIN_VERSION,
-  PLUGIN_MATURITY 
+  PLUGIN_MATURITY
 }
 maria_declare_plugin_end;
