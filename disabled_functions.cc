@@ -244,6 +244,6 @@ maria_declare_plugin(disabled_functions)
   NULL,
   disabled_functions_system_variables,
   PLUGIN_VERSION,
-  MariaDB_PLUGIN_MATURITY_ALPHA
+  PLUGIN_MATURITY 
 }
 maria_declare_plugin_end;

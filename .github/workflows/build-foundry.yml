@@ -1,0 +1,21 @@
+name: Build and package disabled_functions plugin
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*"
+
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    uses: lefred/mariadb-plugin-ci/.github/workflows/build-plugin-new.yml@main
+    with:
+       mariadb_versions: 74647
+       test_suites: disabled_functions
