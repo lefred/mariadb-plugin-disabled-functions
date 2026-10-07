@@ -15,7 +15,19 @@ permissions:
 
 jobs:
   build:
-    uses: lefred/mariadb-plugin-ci/.github/workflows/build-plugin-new.yml@main
+    uses: lefred/mariadb-plugin-ci/.github/workflows/build-plugin.yml@main
     with:
-      mariadb_versions: 74647
-      test_suites: disabled_functions
+      plugin_name: disabled-functions
+      plugin_directory: disabled_functions
+      build_target: disabled_functions
+      plugin_library: disabled_functions.so
+
+      sdk_image: quay.io/lefred14/mariadb-plugin-build
+      mariadb_versions: |
+          13.0.2
+          13.1.1
+          
+      cmake_options: -DPLUGIN_DATE_EXTRA=DYNAMIC
+      test_suite: disabled_functions
+      run_tests: false
+
